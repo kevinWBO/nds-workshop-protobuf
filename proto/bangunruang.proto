@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package proto;
+option go_package = "./;proto";
+
+message RequestKubus {
+    int32 sisi = 1;
+}
+
+message RequestPersegi {
+    int32 sisi = 1;
+}
+
+message RequestLingkaran {
+  float radius=1;
+}
+
+message RequestSegitiga {
+  int32 alas = 1;
+  int32 tinggi = 2;
+  int32 sisi_1 = 3;
+  int32 sisi_2 = 4;
+  int32 sisi_3 = 5;
+}
+
+message ResponseVolumeKubus {
+    int32 volume = 1;
+}
+
+message ResponseKelilingPersegi {
+    int32 keliling = 1;
+}
+
+message ResponseLingkaran {
+  float luas = 1;
+  float keliling = 2;
+}
+
+message ResponseSegitiga {
+  int32 luas = 1;
+  int32 keliling = 2;
+}
+
+
+service BangunRuang {
+    rpc HitungVolumeKubus(RequestKubus) returns (ResponseVolumeKubus);
+    rpc HitungKelilingPersegi(RequestPersegi) returns (ResponseKelilingPersegi);
+    rpc HitungLingkaran(RequestLingkaran) returns (ResponseLingkaran);
+    rpc HitungSegitiga(RequestSegitiga) returns (ResponseSegitiga);
+}

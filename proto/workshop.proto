@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package proto;
+option go_package = "./;proto";
+
+message RequestHitungLuasPersegi {
+  int32 Panjang =1;
+  int32 Lebar=2;
+}
+
+message ResponseLuasPersegi {
+  int32 Luas =1;
+}
+
+service BangunDatar {
+  rpc HitungLuasPersegi(RequestHitungLuasPersegi) returns (ResponseLuasPersegi);
+}
